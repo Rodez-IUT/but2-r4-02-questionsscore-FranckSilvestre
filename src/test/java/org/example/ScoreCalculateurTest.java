@@ -16,7 +16,9 @@ public class ScoreCalculateurTest {
 
     @BeforeEach
     public void setUp() {
+        // given: a multiple question
         questionAchoixMultiple = new QuestionAChoixMultiple("q1", new ArrayList<>(Arrays.asList(2, 3, 5)));
+        // and a score calulateur
         scoreCalculateur = new ScoreCalculateur();
     }
 
