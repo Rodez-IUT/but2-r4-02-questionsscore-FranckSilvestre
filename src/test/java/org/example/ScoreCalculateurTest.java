@@ -17,7 +17,7 @@ public class ScoreCalculateurTest {
     @BeforeEach
     public void setUp() {
         // given: a multiple question
-        questionAchoixMultiple = new QuestionAChoixMultiple("q1", new ArrayList<>(Arrays.asList(2, 3, 5)));
+        questionAchoixMultiple = new QuestionAChoixMultiple("q1", new ArrayList<>(Arrays.asList(2, 3, 5)),5);
         // and a score calulateur
         scoreCalculateur = new ScoreCalculateur();
     }
@@ -57,6 +57,20 @@ public class ScoreCalculateurTest {
         assertEquals(66.66f, scoreCalculateur.calculeScore(ltf, questionAchoixMultiple), 0.01f);
     }
 
+    @Test
+    public void testCalculeScore_ReponsesFaussesEtJustes() {
+        // given : une liste contenant des réponses justes et fausses
+        List<Integer> ltf = new ArrayList<>(Arrays.asList(1, 2, 3));
+        // expected : le score vaut 1/6 du max
+        assertEquals(16.66f, scoreCalculateur.calculeScore(ltf,questionAchoixMultiple),0.01f);
+    }
 
+    @Test
+    public void testCalculeScore_ToutesLesResponsesSelectionnees() {
+        // given : une liste contenant toutes les réponses
+        List<Integer> all = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
+        // expected : le score vaut zéro
+        assertEquals(0f, scoreCalculateur.calculeScore(all,questionAchoixMultiple),0.01f);
+    }
 
 }

@@ -15,7 +15,7 @@ public class QuestionAChoixMultipleTest {
     @BeforeEach
     public void setup() {
         // given: a multiple choice question with correct indices : [2,3,5]
-        questionAchoixMultiple = new QuestionAChoixMultiple("q1", new ArrayList<>(Arrays.asList(2, 3, 5)));
+        questionAchoixMultiple = new QuestionAChoixMultiple("q1", new ArrayList<>(Arrays.asList(2, 3, 5)),5);
     }
 
     @Test
@@ -33,7 +33,7 @@ public class QuestionAChoixMultipleTest {
     @Test
     public void testGetScore_NotCorrectIndice() {
         // expected: getScoreForIndice return 0 as score when a non correct index is provided
-        assertEquals(0f, questionAchoixMultiple.getScoreForIndice(1), 0.001f);
+        assertEquals(-50f, questionAchoixMultiple.getScoreForIndice(1), 0.001f);
     }
 
 }
