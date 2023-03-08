@@ -12,12 +12,15 @@ import static org.junit.jupiter.api.Assertions.*;
 public class ScoreCalculateurTest {
 
     private QuestionAChoixMultiple questionAchoixMultiple;
+    private QuestionAChoixMultiple questionAchoixMultiple3Items;
     private ScoreCalculateur scoreCalculateur;
 
     @BeforeEach
     public void setUp() {
-        // given: a multiple question
+        // given: a multiple question with 5 items
         questionAchoixMultiple = new QuestionAChoixMultiple("q1", new ArrayList<>(Arrays.asList(2, 3, 5)),5);
+        // and one with 3 items
+        questionAchoixMultiple3Items = new QuestionAChoixMultiple("q2", new ArrayList<>(Arrays.asList(1,2)), 3);
         // and a score calulateur
         scoreCalculateur = new ScoreCalculateur();
     }
@@ -66,11 +69,18 @@ public class ScoreCalculateurTest {
     }
 
     @Test
-    public void testCalculeScore_ToutesLesResponsesSelectionnees() {
+    public void testCalculeScore_ToutesLesResponsesSelectionnees5Items() {
         // given : une liste contenant toutes les réponses
         List<Integer> all = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
         // expected : le score vaut zéro
         assertEquals(0f, scoreCalculateur.calculeScore(all,questionAchoixMultiple),0.01f);
     }
 
+    @Test
+    public void testCalculeScore_ToutesLesResponsesSelectionnees3Items() {
+        // given : une liste contenant toutes les réponses
+        List<Integer> all = new ArrayList<>(Arrays.asList(1, 2, 3));
+        // expected : le score vaut zéro
+        assertEquals(0f, scoreCalculateur.calculeScore(all,questionAchoixMultiple3Items),0.01f);
+    }
 }
