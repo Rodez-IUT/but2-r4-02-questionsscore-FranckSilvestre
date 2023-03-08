@@ -3,7 +3,7 @@ package org.example;
 import java.util.List;
 
 /**
- * Classe répresentant une question à choix multiple
+ * Classe représentant une question à choix multiple
  */
 public class QuestionAChoixMultiple implements QuestionAChoix {
 
@@ -18,7 +18,9 @@ public class QuestionAChoixMultiple implements QuestionAChoix {
      * @param indicesBonnesReponses la liste des indices formant la bonne réponse.
      * @param nombreChoix le nombre de choix possible
      */
-    public QuestionAChoixMultiple(String enonce, List<Integer> indicesBonnesReponses, int nombreChoix) {
+    public QuestionAChoixMultiple(String enonce,
+                                  List<Integer> indicesBonnesReponses,
+                                  int nombreChoix) {
         this.enonce = enonce;
         this.indicesBonnesReponses = indicesBonnesReponses;
         this.nombreChoix = nombreChoix;
