@@ -32,7 +32,7 @@ public class QuestionAChoixMultipleTest {
 
     @Test
     public void testGetScore_NotCorrectIndice() {
-        // expected: getScoreForIndice return 0 as score when a non correct index is provided
+        // expected: getScoreForIndice return -50 as score when a non correct index is provided
         assertEquals(-50f, questionAchoixMultiple.getScoreForIndice(1), 0.001f);
     }
 

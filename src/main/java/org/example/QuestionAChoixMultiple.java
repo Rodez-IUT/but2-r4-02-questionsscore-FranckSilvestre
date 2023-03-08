@@ -16,6 +16,7 @@ public class QuestionAChoixMultiple implements QuestionAChoix {
      * la bonne réponse
      * @param enonce l'énoncé de la question
      * @param indicesBonnesReponses la liste des indices formant la bonne réponse.
+     * @param nombreChoix le nombre de choix possible
      */
     public QuestionAChoixMultiple(String enonce, List<Integer> indicesBonnesReponses, int nombreChoix) {
         this.enonce = enonce;
